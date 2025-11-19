@@ -1,5 +1,6 @@
 {
   "name": "getalawyer",
+  "type": "module",
   "scripts": {
     "dev": "bun run --hot src/index.ts",
     "db:up": "docker compose up -d",
