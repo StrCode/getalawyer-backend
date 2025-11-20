@@ -4,8 +4,6 @@ import { db } from '@/db/db';
 import { openAPI } from 'better-auth/plugins';
 
 export const auth = betterAuth({
-  //TODO:remove if not fixed
-  baseURL: "https://getalawyer-backend-production.up.railway.app",
   database: drizzleAdapter(db, {
     provider: 'pg',
   }),
