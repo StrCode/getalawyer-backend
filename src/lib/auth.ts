@@ -7,6 +7,16 @@ export const auth = betterAuth({
   database: drizzleAdapter(db, {
     provider: 'pg',
   }),
+  trustedOrigins: [
+    "http://localhost:3000",
+    "https://getalawyer-frontend.vercel.app"
+  ],
+  session: {
+    cookieCache: {
+      enabled: true,
+      maxAge: 60 * 5 // 5 minutes
+      }
+  },
   emailAndPassword: {
     enabled: true,
   },
