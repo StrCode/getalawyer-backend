@@ -11,20 +11,21 @@ export const auth = betterAuth({
     "http://localhost:3000",
     "https://getalawyer-frontend.vercel.app"
   ],
-  session: {
-    cookieCache: {
-      enabled: true,
-      maxAge: 60 * 5 // 5 minutes
-      }
+  advanced: {
+    defaultCookieAttributes: {
+      sameSite: "none",
+      secure: true, // Must be true if sameSite is none
+      httpOnly: true
+    }
   },
   emailAndPassword: {
     enabled: true,
   },
   socialProviders: {
-      google: { 
-          clientId: process.env.GOOGLE_CLIENT_ID as string, 
-          clientSecret: process.env.GOOGLE_CLIENT_SECRET as string, 
-      }, 
+    google: {
+      clientId: process.env.GOOGLE_CLIENT_ID as string,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
+    },
   },
   plugins: [openAPI()],
 });
