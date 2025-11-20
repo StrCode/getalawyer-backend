@@ -7,7 +7,7 @@ const app = new Hono();
 app.use(
   '/api/auth/*',
   cors({
-    origin: 'https://getalawyer-frontend.vercel.app',
+    origin: 'http://localhost:3000',
     allowHeaders: ['Content-Type', 'Authorization'],
     allowMethods: ['POST', 'GET', 'OPTIONS'],
     exposeHeaders: ['Content-Length'],
