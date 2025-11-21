@@ -12,10 +12,8 @@ export const auth = betterAuth({
     "https://getalawyer-frontend.vercel.app"
   ],
   advanced: {
-    defaultCookieAttributes: {
-      sameSite: "none",
-      secure: true,
-      httpOnly: true,
+    crossSubDomainCookies: {
+      enabled: true
     },
   },
   emailAndPassword: {
