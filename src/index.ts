@@ -3,12 +3,7 @@ import { auth } from './lib/auth';
 import { cors } from 'hono/cors';
 import { logger } from "hono/logger";
 
-const app = new Hono<{
-  Variables: {
-    user: typeof auth.$Infer.Session.user | null;
-    session: typeof auth.$Infer.Session.session | null
-  }
-}>();
+const app = new Hono();
 
 app.use(logger());
 
@@ -30,8 +25,8 @@ app.use(
   "/*",
   cors({
     origin: [
+      'https://getalawyer-frontend.vercel.app',
       'http://localhost:3000',
-      'https://getalawyer-frontend.vercel.app'
     ],
     // origin: process.env.CORS_ORIGIN || "",
     allowMethods: ["GET", "POST", "OPTIONS"],
